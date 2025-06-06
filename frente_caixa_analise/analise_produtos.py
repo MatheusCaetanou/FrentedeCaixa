@@ -4,9 +4,8 @@ import os
 # Criar pasta de saída
 os.makedirs("relatorios", exist_ok=True)
 
-# Carregar CSV
-df = pd.read_csv("C:/Users/Matheus/IdeaProjects/FRENTE DE CAIXA/frente_caixa_analise/Produtos.csv", sep=";", encoding="utf-8", engine="python")
-
+script_dir = os.path.dirname(os.path.abspath(__file__))
+df = pd.read_csv(script_dir+"/frente_caixa_analise/Produtos.csv", sep=";", encoding="utf-8", engine="python")
 # Limpeza e conversões
 df.columns = df.columns.str.strip()
 df["Preço de Custo"] = pd.to_numeric(df.get("Preço de Custo"), errors="coerce")
