@@ -2,14 +2,14 @@ import pandas as pd
 import streamlit as st
 import os
 
-os.chdir("C:/Users/Matheus/IdeaProjects/FRENTE DE CAIXA/frente_caixa_analise")  # Define o diretório correto
+script_dir = os.path.dirname(os.path.abspath(__file__))
+os.chdir(script_dir+"/frente_caixa_analise")  # Define o diretório correto
 print("Diretório ajustado para:", os.getcwd())  # Verifica se foi alterado com sucess
+
 
 print("Diretório atual:", os.getcwd())  # Mostra o diretório de execução
 print("Arquivos na pasta:", os.listdir())  # Lista todos os arquivos na pasta
 print("Arquivo existe?", os.path.exists("Produtos.csv"))  # Confirma se o CSV está acessível
-
-df = pd.read_csv("C:/Users/Matheus/IdeaProjects/FRENTE DE CAIXA/frente_caixa_analise/Produtos.csv", sep=";", encoding="utf-8", engine="python")
 
 # Carregar CSV
 df = pd.read_csv("Produtos.csv", sep=";", encoding="utf-8", engine="python")
